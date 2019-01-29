@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <com.example.pulseoximeter.LineShape
+        android:id="@+id/graph"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Spo2Value" />
+    
+    <TextView
+        android:id="@+id/nameoffile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/filenameText"
+        android:layout_alignBottom="@+id/filenameText"
+        android:layout_toRightOf="@+id/filenameText"
+        android:text="____________________"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/Spo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="SpO2 %"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/Spo2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dp"
+        android:gravity="top|right"
+        android:text="--"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/spo2compair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CompareValue"
+        android:layout_alignBottom="@+id/CompareValue"
+        android:layout_alignRight="@+id/CompairText"
+        android:text="SpO2 %"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/CompareValue"
+        android:layout_alignRight="@+id/statuscompare"
+        android:text="&lt;"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CompairText"
+        android:layout_alignBottom="@+id/CompairText"
+        android:layout_toRightOf="@+id/CompairText"
+        android:minHeight="24dp"
+        android:minWidth="32dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Start"
+        android:layout_alignBottom="@+id/Start"
+        android:layout_toRightOf="@+id/Start"
+        android:minHeight="24dp"
+        android:minWidth="32dp"
+        android:text="Setting" />
+
+    <Button
+        android:id="@+id/SaveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/SaveDataText"
+        android:layout_alignBottom="@+id/SaveDataText"
+        android:layout_toRightOf="@+id/StatusSaveText"
+        android:minHeight="24dp"
+        android:minWidth="32dp"
+        android:text="SaveData" />
+
+    <TextView
+        android:id="@+id/CompareValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/setup"
+        android:layout_below="@+id/setup"
+        android:text="---"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/CompairText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/graph"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Compare SpO2"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/StatusConnectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/statuscompare"
+        android:layout_alignBottom="@+id/statuscompare"
+        android:layout_alignLeft="@+id/StatusSaveText"
+        android:text="Status Board: not Connected!"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/statuscompare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spo2compair"
+        android:layout_below="@+id/StatusSaveText"
+        android:layout_marginTop="13dp"
+        android:text="Status: On Oxygen"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/filenameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/SaveDataText"
+        android:layout_alignTop="@+id/spo2compair"
+        android:text="filename : "
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/StatusSaveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/filenameText"
+        android:layout_below="@+id/spo2compair"
+        android:text="Status: Not Save!"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/SaveDataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/setup"
+        android:layout_alignBottom="@+id/setup"
+        android:layout_marginLeft="83dp"
+        android:layout_toRightOf="@+id/setup"
+        android:text="Save Data SpO2"
+        android:textSize="15sp" />
+
+</RelativeLayout>

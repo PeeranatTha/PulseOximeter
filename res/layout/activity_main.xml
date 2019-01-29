@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/filenameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/SaveDataText"
+        android:layout_below="@+id/SaveDataText"
+        android:layout_marginTop="28dp"
+        android:text="filename : "
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/nameoffile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/filenameText"
+        android:layout_alignBottom="@+id/filenameText"
+        android:layout_toRightOf="@+id/filenameText"
+        android:text="____________________"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/StatusSaveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/filenameText"
+        android:layout_below="@+id/filenameText"
+        android:layout_marginTop="29dp"
+        android:text="Status: Not Save!"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/Spo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="SpO2 %"
+        android:textSize="100sp" />
+
+    <Button
+        android:id="@+id/setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CompairText"
+        android:layout_alignBottom="@+id/CompairText"
+        android:layout_marginLeft="121dp"
+        android:layout_toRightOf="@+id/CompairText"
+        android:text="Setting" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/StatusSaveText"
+        android:layout_alignTop="@+id/CompareValue"
+        android:layout_marginLeft="38dp"
+        android:layout_toRightOf="@+id/CompairText"
+        android:text="&lt;"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/CompareValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/setup"
+        android:layout_alignTop="@+id/filenameText"
+        android:text="---"
+        android:textSize="100sp" />
+
+    <Button
+        android:id="@+id/Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/setup"
+        android:layout_alignBottom="@+id/setup"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="Start" />
+
+    <TextView
+        android:id="@+id/CompairText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/filenameText"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="29dp"
+        android:text="Compare SpO2"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/spo2compair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CompairText"
+        android:layout_below="@+id/filenameText"
+        android:text="SpO2 %"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/statuscompare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/StatusConnectText"
+        android:layout_alignBottom="@+id/StatusConnectText"
+        android:layout_alignLeft="@+id/spo2compair"
+        android:text="Status: On Oxygen"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/Spo2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dp"
+        android:gravity="top|right"
+        android:text="--"
+        android:textSize="150sp" />
+
+    <TextView
+        android:id="@+id/SaveDataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/SaveData"
+        android:layout_marginLeft="116dp"
+        android:layout_toRightOf="@+id/CompareValue"
+        android:text="Save Data SpO2"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/StatusConnectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/StatusSaveText"
+        android:layout_below="@+id/CompareValue"
+        android:text="Status Board: not Connected!"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/SaveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/StatusConnectText"
+        android:layout_centerVertical="true"
+        android:text="SaveData" />
+
+    <com.example.pulseoximeter.LineShape
+        android:id="@+id/graph"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Spo2Value" />
+
+</RelativeLayout>
