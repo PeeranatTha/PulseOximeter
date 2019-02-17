@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import ioio.lib.api.AnalogInput;
 import ioio.lib.api.DigitalOutput;
@@ -325,6 +326,7 @@ public class MainActivity extends IOIOActivity {
 						  OldDataIRLow = 0;
 						  OldDataRedLow = 0;*/
 						  lowcheck = false;
+						  
 						  findpeak(DataRedVoltage);
 						  
 					  }else{
@@ -335,6 +337,7 @@ public class MainActivity extends IOIOActivity {
 						  OldDataIRLow = 0;
 						  OldDataRedLow = 0;*/
 						  lowcheck = false;
+						  
 						  findpeakIR(DataIRVoltage);
 						  findSpo2(max, min, maxIR, minIR);
 					  }
@@ -381,6 +384,8 @@ public class MainActivity extends IOIOActivity {
                         	ControlDigitalA_J4.write(false);//11 open signal Red
                         	ControlDigitalB_J4.write(false);//10 open signal Red
                         		
+                        	
+                        	
                     		DataRedVoltage = DataRed.getVoltage();
                     		Red_Buffered_Plots[pointplots] = DataRedVoltage;
                     		pointplots++;
@@ -399,6 +404,8 @@ public class MainActivity extends IOIOActivity {
                     		ControlDigitalB_J3.write(false);//13 open signal IR
                     		ControlDigitalA_J4.write(true);//11 open signal IR
                     		ControlDigitalB_J4.write(false);//10 open signal IR
+                    		
+                    		
                     		
                 			DataIRVoltage = DataIR.getVoltage();
                 			IR_Buffered_Plots[pointplotsIR] = DataIRVoltage;
@@ -464,7 +471,7 @@ public class MainActivity extends IOIOActivity {
                             	}
 		                		
                             	if(rateSpo2 >= 100){
-            						rateSpo2 = 99;
+            						rateSpo2 = 100;
                               	}
                               	textSpo2Value.setText(String.format("%.0f",rateSpo2));
                             	
