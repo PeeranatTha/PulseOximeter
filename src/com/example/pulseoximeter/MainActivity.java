@@ -156,7 +156,6 @@ public class MainActivity extends IOIOActivity {
 	
 	public void saveData(){
 		
-		
 		try {
 			if(StartSave == true){
 				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -167,16 +166,16 @@ public class MainActivity extends IOIOActivity {
 		    	
 		    	FileWriter pw = new FileWriter(file, true);
 		    	if(HeaderSave == true){
-		    		String bufferHeader = "Date/Time" + "     " + "SpO2%" + "     " + "CompareSpO2 less than" + "\n";
+		    		String bufferHeader = "Date/Time" + "     " + "SpO2%" + "     " + "CompareSpO2 less than" + "     " + "Red" + "     " + "IR" + "\n";
 		    		pw.write(bufferHeader);
 		    		HeaderSave = false;
 		    	}
 		    	
-		    	String buffer = timestamp + "     " + (int)rateSpo2 + "     " + CompareSpo2 + "\n";
+		    	String buffer = timestamp + "     " + (int)rateSpo2 + "     " + CompareSpo2 + "     " + DataRedVoltage + "     " + DataIRVoltage + "\n";
 		    	pw.write(buffer);
 		        pw.close();     
 		        
-		        StartSave = false;
+		        //StartSave = false;
 			}
 			
 	    } catch (FileNotFoundException e) {
@@ -228,7 +227,7 @@ public class MainActivity extends IOIOActivity {
 	public void saveControl(){
     	
     	if(isSave == false){
-    		
+    		StartSave = true;
     		saveControl.setText("Cancel Save");
     		//ใส่ชื่อเซฟ
         	AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -342,9 +341,9 @@ public class MainActivity extends IOIOActivity {
 						  findSpo2(max, min, maxIR, minIR);
 					  }
 					  
-					  if(StartSave == false){
+					  /*if(StartSave == false){
 						  StartSave = true;
-					  }
+					  }*/
 					  
 					   
 				  }
