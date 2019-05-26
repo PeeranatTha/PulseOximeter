@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
-
+    
+    
+    
     <TextView
         android:id="@+id/filenameText"
         android:layout_width="wrap_content"
@@ -151,11 +153,18 @@
         android:text="SaveData" />
 
     <com.example.pulseoximeter.LineShape
-        android:id="@+id/graph"
+        android:id="@+id/graph2"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Spo2Value" />
+
+    <com.example.pulseoximeter.GraphView
+        android:id="@+id/graph"
+        android:layout_width="wrap_content"
+        android:layout_height="250dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>
