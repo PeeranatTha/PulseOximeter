@@ -150,12 +150,11 @@
         android:layout_centerVertical="true"
         android:text="SaveData" />
 
-    <com.example.pulseoximeter.LineShape
+    <com.example.pulseoximeter.GraphView
         android:id="@+id/graph"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="250dip"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/Spo2Value" />
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

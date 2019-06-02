@@ -35,7 +35,7 @@ public class MainActivity extends IOIOActivity {
 
 	//private static final SimpleDateFormat timesave = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 	
-	//private GraphView mGraphView;
+	private GraphView mGraphView;
 	//private LineShape mLineShape;
 	 
 	public File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/DataSpo2/");
@@ -144,8 +144,8 @@ public class MainActivity extends IOIOActivity {
             }
         });
 		
-		/*mGraphView = (GraphView) findViewById(R.id.graph);
-		mGraphView.setMaxValue(50);*/
+		mGraphView = (GraphView) findViewById(R.id.graph);
+		mGraphView.setMaxValue(50);
 		
 		//textRed = (TextView)findViewById(R.id.textRed);
 		//txtIR = (TextView)findViewById(R.id.textIR);
@@ -526,7 +526,7 @@ public class MainActivity extends IOIOActivity {
 		runOnUiThread(new Runnable() {
 			public void run(){
 				
-		    	//mGraphView.addDataPoint(point);
+		    	mGraphView.addDataPoint(point);
 			}
 		});
 	}
