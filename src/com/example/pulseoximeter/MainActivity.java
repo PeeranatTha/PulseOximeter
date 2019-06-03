@@ -423,14 +423,13 @@ public class MainActivity extends IOIOActivity {
             			}
                 		
             			
-            			//addPoint(DataIRVoltage*20);
+            			//addPoint(DataRedVoltage*20);
             			
                 		runOnUiThread(new Runnable() {
                             public void run() {
                             	//addpoint
-                            	//addPoint(DataIRVoltage+40);   
+                            	addPoint(DataIRVoltage*20+20);   
                             	//addPoint(IR_Buffered_Plots[pointplots]*30-20);
-                            	
                             	
                             	
                             	if(Start_Compare == true){
