@@ -90,8 +90,8 @@ public class MainActivity extends IOIOActivity {
 	float PeakDataIRVoltage;
 	float LowDataIRVoltage;*/
 	float rateSpo2;
-	float[] Red_Buffered_Plots = new float[60];
-	float[] IR_Buffered_Plots = new float[60];
+	float[] Red_Buffered_Plots = new float[200];
+	float[] IR_Buffered_Plots = new float[200];
 	int pointplots = 0;
 	int pointplotsIR = 0;
 	float RATIO;
@@ -172,7 +172,7 @@ public class MainActivity extends IOIOActivity {
 		    		HeaderSave = false;
 		    	}
 		    	
-		    	String buffer = timestamp + "     " + (int)rateSpo2 + "     " + CompareSpo2 + "\n";
+		    	String buffer = timestamp + "     " + (int)rateSpo2 + "     " + CompareSpo2 + "     "/* + num*/ + "\n";
 		    	pw.write(buffer);
 		        pw.close();     
 		        
@@ -328,6 +328,8 @@ public class MainActivity extends IOIOActivity {
 						  lowcheck = false;
 						  
 						  findpeak(DataRedVoltage);
+						 /* num = pointplots;
+						  pointplots = 0;*/
 						  
 					  }else{
 						  swap = 0;
@@ -340,13 +342,14 @@ public class MainActivity extends IOIOActivity {
 						  
 						  findpeakIR(DataIRVoltage);
 						  findSpo2(max, min, maxIR, minIR);
+						  /*num = pointplots;
+						  pointplots = 0;*/
 					  }
 					  
 					  if(StartSave == false){
 						  StartSave = true;
 					  }
 					  
-					   
 				  }
 				}, 0, 5000);
 			
@@ -415,11 +418,11 @@ public class MainActivity extends IOIOActivity {
                 		}
                 			
             			
-            			if(pointplots == 60){
+            			if(pointplots >= 164){
             				pointplots = 0;
             				
             			}
-            			if(pointplotsIR == 60){
+            			if(pointplotsIR >= 164){
             				pointplotsIR = 0;
             			}
                 		
@@ -472,8 +475,10 @@ public class MainActivity extends IOIOActivity {
 		                		
                             	if(rateSpo2 >= 100){
             						rateSpo2 = 100;
-                              	}
+                              	} 
+                            	
                               	textSpo2Value.setText(String.format("%.0f",rateSpo2));
+                            	//textSpo2Value.setText(String.format("%.0f",num));
                             	
                               	if(isSave == true){
             						  saveData();
@@ -534,17 +539,20 @@ public class MainActivity extends IOIOActivity {
 	
 	private void findpeakIR(float DataIRVoltage){
 		
-		maxIR = IR_Buffered_Plots[0];
-		minIR = IR_Buffered_Plots[0];
-		for (int i = 1; i < IR_Buffered_Plots.length; i++) {
+		maxIR = IR_Buffered_Plots[160];
+		minIR = IR_Buffered_Plots[160];
+		
+		for (int i = 160; i >= 90; i--) {
 		    if (IR_Buffered_Plots[i] > maxIR) {
 		        maxIR = IR_Buffered_Plots[i];
 		    }
 		    if (IR_Buffered_Plots[i] < minIR) {
-		        minIR = IR_Buffered_Plots[i];
+		        minIR = IR_Buffered_Plots[i]; 
 		    }
+		    
 		}
 		
+    	
 		/*if(lowcheckIR == false){
 			if(DataIRVoltage > OldDataIRVoltage){
 				OldDataIRVoltage = DataIRVoltage;
@@ -567,20 +575,23 @@ public class MainActivity extends IOIOActivity {
 		}*/
 	}
 	
+	public int num;
+	
 	private void findpeak(float DataRedVoltage){
 		
 		//datapeakRed
-		max = Red_Buffered_Plots[0];
-		min = Red_Buffered_Plots[0];
-		for (int i = 1; i < Red_Buffered_Plots.length; i++) {
+		max = Red_Buffered_Plots[160];
+		min = Red_Buffered_Plots[160];
+		
+		for (int i = 160; i >= 90; i--) {
 		    if (Red_Buffered_Plots[i] > max) {
 		        max = Red_Buffered_Plots[i];
 		    }
 		    if (Red_Buffered_Plots[i] < min) {
 		        min = Red_Buffered_Plots[i];
 		    }
+		   
 		}
-		
 		
 		/*if(lowcheck == false){
 			if(DataRedVoltage > OldDataRedVoltage){
